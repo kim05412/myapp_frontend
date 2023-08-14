@@ -4,28 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ProEatsNearby</title>
+    <link rel="stylesheet" href="background.css" />
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
     <header>
-      <div>
-        <h1>ProEatsNearby</h1>
-      </div>
-      <ui>
-        <li class="hover">
-          <a href="#로그인">로그인</a>
-          <a href="#회원가입"> / 회원가입</a>
+      <h1>프로 직장인들을 위한 식당 리스트</h1>
+      <ul>
+        <li>
+          <a href="menu">메뉴</a>
+          <ul class="sub-menu">
+            <li><a href="동남아식"></a></li>
+            <li><a href="양식"></a></li>
+            <li><a href="일식"></a></li>
+            <li><a href="중식"></a></li>
+            <li><a href="한식"></a></li>
+            <li><a href="그외"></a></li>
+          </ul>
         </li>
-        <li class="hover">
-          <a href="#소불고기">회원가입</a>
+
+        <li>
+          <a href="홈">홈</a>
         </li>
         <li>
-          <a href="#마이페이지">마이페이지</li
+          <a href="내 회사 근처">내 회사 근처</a>
         </li>
         <li>
-          <a href="#작성">게시물 작성</a></li>
-    
-        </ul>
+          <a href="#포스트작성">포스트작성</a>
+        </li>
+        <li>
+          <a href="#마이페이지">마이페이지</a>
+        </li>
+      </ul>
     </header>
+    <script src="/sidebar.js"></script>
+    <script src="index.js"></script>
+    <main></main>
   </body>
 </html>
