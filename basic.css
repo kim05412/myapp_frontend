@@ -65,35 +65,6 @@ header li {
 header h1 {
   left: 50%;
 }
-
-/* header- menu:드롭다운 */
-
-.sub-menu {
-  list-style: none;
-  display: none;
-  position: absolute;
-  width: 150px;
-  background-color: white;
-  padding: 5px;
-  border: 3px solid #ccc;
-  list-style-position: inside;
-  z-index: 1;
-}
-
-.sub-menu a {
-  display: block;
-  text-decoration: none;
-  color: black;
-  white-space: nowrap;
-}
-
-li:hover .sub-menu {
-  display: block;
-}
 .wirte_post a:hover {
   background-color: aliceblue;
-}
-.sub-menu a:hover {
-  background-color: #fa6622;
-  padding: 2px;
 }
