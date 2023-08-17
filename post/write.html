@@ -4,17 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>post</title>
-    <link rel="stylesheet" href="/background.css" />
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="/basic.css" />
+    <link rel="stylesheet" href="write.css" />
   </head>
   <body>
     <header>
       <div><a href="home">ProEatsNearby</a></div>
-      <div>
-        <h1>게시물 작성</h1>
+      <div class="wirte_post">
+        <h1>포스트 작성</h1>
         <ul>
           <li><a href="홈">홈</a></li>
-          <li><a href="menu">메뉴</a></li>
+          <li>
+            <a href="menu"
+              >메뉴
+              <ul class="sub-menu">
+                <li><a href="asian">동남아식</a></li>
+                <li><a href="western">양식</a></li>
+                <li><a href="japenese">일식</a></li>
+                <li><a href="chinese">중식</a></li>
+                <li><a href="korean">한식</a></li>
+                <li><a href="others">그외</a></li>
+              </ul></a
+            >
+          </li>
           <li><a href="new">새로운 식당</a></li>
           <li><a href="old">오래된 식당</a></li>
           <li><a href="mypage">마이페이지</a></li>
@@ -23,8 +35,10 @@
     </header>
 
     <main>
+      <!-- 포스트 작성 -->
       <form style="margin-bottom: 3rem">
         <div>
+          <!-- 메뉴 종류 선택 -->
           <div>
             <select id="menu-type" name="menu-type">
               <option value="">메뉴의 타입을 선택해주세요</option>
@@ -61,6 +75,7 @@
           </div>
           <input type="text" placeholder="제목을 작성해주세요" />
         </div>
+        <input type="text" placeholder="메뉴명을 입력해주세요" />
         <input type="text" placeholder="식당의 주소를 입력해 주세요" />
         <textarea
           cols="100"

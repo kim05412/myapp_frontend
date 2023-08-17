@@ -6,15 +6,15 @@
   sidebar.style.marginTop = "200px";
 
   sidebar.innerHTML = /*html */ `
-    <h3 style="margin-top:0;"><a href="/">Home</a></h3>
     <ul>
-      <li><a href="/todo/todo.html">한식</a></li>
-      <li><a href="/todo/todo.html">일식</a></li>
-      <li><a href="/contact/contact.html">중식</a></li>
-      <li><a href="/post/post.html">양식</a></li>
-      <li><a href="#">분식</a></li>
-      <li><a href="#">동남아식</a></li>
-      <li><a href="#">기타</a></li>
+      <li><a href="home">Home</a></li>
+      <li><a href="korean">한식</a></li>
+      <li><a href="japenese">일식</a></li>
+      <li><a href="chinese">중식</a></li>
+      <li><a href="western">양식</a></li>
+      <li><a href="bunsic">분식</a></li>
+      <li><a href="east-asia">동남아식</a></li>
+      <li><a href="others">기타</a></li>
     </ul>
   `;
 
