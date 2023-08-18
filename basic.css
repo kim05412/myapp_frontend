@@ -10,10 +10,14 @@ body {
   min-height: 100vh;
   background-color: #fff1e0;
   /* background-color: #ffd17f; */
+  margin-right: 1%;
+  margin-left: 1%;
 }
 header {
+  margin-top: 01rem;
   position: relative;
   height: 160px;
+  border-radius: 1rem;
 }
 
 header {
@@ -64,6 +68,7 @@ header li {
 }
 header h1 {
   left: 50%;
+  margin-top: 10px;
 }
 .catagory a:hover {
   background-color: aliceblue;
