@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>베스트 식당</title>
     <link rel="stylesheet" href="/basic.css" />
-    <link rel="stylesheet" href="/menu.css" />
+    <link rel="stylesheet" href="/drop-down.css" />
   </head>
   <body>
     <header>
@@ -30,7 +30,17 @@
           <li><a href="old.html">오래된 식당</a></li>
           <li><a href="nearby.html">회사 근처</a></li>
           <li><a href="write.html">포스트 작성</a></li>
-          <li><a href="user/mypage.html">마이페이지</a></li>
+          <li>
+            <a href="/user/mypage.html"
+              >마이페이지
+              <ul class="sub-menu">
+                <li><a href="/user/profile.html">내 프로필</a></li>
+                <li><a href="/user/mines.html">내 포스트</a></li>
+                <li><a href="/user/restuarants.html">내 식당</a></li>
+                <li><a href="/user/likness.html">좋아요한 포스팅</a></li>
+              </ul></a
+            >
+          </li>
         </ul>
       </div>
     </header>
