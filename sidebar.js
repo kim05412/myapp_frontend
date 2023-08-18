@@ -7,16 +7,15 @@
 
   sidebar.innerHTML = /*html */ `
     <ul>
-      <li><a href="home">Home</a></li>
-      <li><a href="korean">한식</a></li>
-      <li><a href="japenese">일식</a></li>
-      <li><a href="chinese">중식</a></li>
-      <li><a href="western">양식</a></li>
-      <li><a href="bunsic">분식</a></li>
-      <li><a href="east-asia">동남아식</a></li>
-      <li><a href="others">기타</a></li>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/menu/korean.html">한식</a></li>
+      <li><a href="/menu/japenese.html">일식</a></li>
+      <li><a href="/menu/chinese.html">중식</a></li>
+      <li><a href="/menu/western.html">양식</a></li>
+      <li><a href="/menu/bunsic.html">분식</a></li>
+      <li><a href="/menu/asian.html">동남아식</a></li>
+      <li><a href="/menu/others.html">기타</a></li>
     </ul>
   `;
-
   document.body.prepend(sidebar);
 })();
