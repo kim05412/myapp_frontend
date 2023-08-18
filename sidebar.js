@@ -1,9 +1,13 @@
+//즉시 실행 표현식 사용-> 로드시 바로 실행
 (() => {
-  const sidebar = document.createElement("aside");
-  sidebar.style.position = "fixed";
+  const sidebar = document.createElement("aside"); //새로운 HTML 요소를 생성
+  sidebar.style.position = "fixed"; // sticky
   sidebar.style.height = "100vh";
   sidebar.style.width = "200px";
   sidebar.style.marginTop = "200px";
+  sidebar.style.backgroundImage =
+    "linear-gradient(white 300px, transparent 300px)";
+  sidebar.style.borderRadius = "15px";
 
   sidebar.innerHTML = /*html */ `
     <ul>
@@ -17,5 +21,6 @@
       <li><a href="/menu/others.html">기타</a></li>
     </ul>
   `;
-  document.body.prepend(sidebar);
+
+  document.body.prepend(sidebar); //body요소 맨 앞에 추가
 })();
