@@ -1,22 +1,28 @@
-let currentPage = 0; // 현재 페이지  -> 이전/다음/특정 페이징 이동
-let isLastPage = false;
-const PAGE_SIZE = 10;
-let currentQuery = ""; // 현재 검색 키워드 저장-> 페이징과 검색 동시
+// 작성한 포스트
+function cardTemplate(item) {
+  // 1개 이상의 값 선택
+  const menuTypes = document.querySelectorAll(".menu-type");
+  const postTitle = document.querySelector("#title").value;
+  const menuName = document.querySelector("#menu").value;
+  const restaurantAddress = document.querySelector("#address").value;
+  const postContent = document.querySelector("#review").value;
 
-function createRow(name, phone, email, image) {
-  // 1. 요소 생성
-  const tr = document.createElement("tr");
-
-  // 2. 요소의 속성 설정
-  tr.dataset.email = email;
-  tr.innerHTML = /*html*/ `
-  <td>${name}</td>
-  <td>${phone}</td>
-  <td>${email}</td>  
-  <td>${
-    image ? `<img width="auto" height="30" src="${image}" alt="${name}">` : ""
-  }</td>
-  <td><button class="btn-modify">수정</button></td>
-  `;
-  return tr;
+  const xhr = new XMLHttpRequest();
+  const url = "/post/write"; // 데이터를 전송할 URL
+  xhr.open("POST", url);
+  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      console.log(xhr.responseText);
+    }
+  };
+  xhr.send(
+    JSON.stringify({
+      menuType,
+      postTitle,
+      menuName,
+      restaurantAddress,
+      postContent,
+    })
+  );
 }

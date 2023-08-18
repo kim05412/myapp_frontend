@@ -52,53 +52,58 @@
         <div>
           <!-- 메뉴 종류 선택 -->
           <div>
-            <select id="menu-type" name="menu-type">
+            <select class="menu-type" name="menu-type">
               <option value="">메뉴의 타입을 선택해주세요</option>
-              <option value="type1">동남아식</option>
-              <option value="type2">양식</option>
-              <option value="type3">일식</option>
-              <option value="type3">중식</option>
-              <option value="type3">기타</option>
+              <option value="1">동남아식</option>
+              <option value="2">양식</option>
+              <option value="3">일식</option>
+              <option value="4">중식</option>
+              <option value="5">기타</option>
             </select>
-            <select id="menu-type" name="menu-type">
-              <option value="">추가</option>
-              <option value="type1">동남아식</option>
-              <option value="type2">양식</option>
-              <option value="type3">일식</option>
-              <option value="type3">중식</option>
-              <option value="type3">기타</option>
+            <select class="menu-type" name="menu-type">
+              <option value="">메뉴의 타입을 선택해주세요</option>
+              <option value="1">동남아식</option>
+              <option value="2">양식</option>
+              <option value="3">일식</option>
+              <option value="4">중식</option>
+              <option value="5">기타</option>
             </select>
-            <select id="menu-type" name="menu-type">
-              <option value="">추가</option>
-              <option value="type1">동남아식</option>
-              <option value="type2">양식</option>
-              <option value="type3">일식</option>
-              <option value="type3">중식</option>
-              <option value="type3">기타</option>
+            <select class="menu-type" name="menu-type">
+              <option value="">메뉴의 타입을 선택해주세요</option>
+              <option value="1">동남아식</option>
+              <option value="2">양식</option>
+              <option value="3">일식</option>
+              <option value="4">중식</option>
+              <option value="5">기타</option>
             </select>
-            <select id="menu-type" name="menu-type">
-              <option value="">추가</option>
-              <option value="type1">동남아식</option>
-              <option value="type2">양식</option>
-              <option value="type3">일식</option>
-              <option value="type3">중식</option>
-              <option value="type3">기타</option>
+            <select class="menu-type" name="menu-type">
+              <option value="">메뉴의 타입을 선택해주세요</option>
+              <option value="1">동남아식</option>
+              <option value="2">양식</option>
+              <option value="3">일식</option>
+              <option value="4">중식</option>
+              <option value="5">기타</option>
             </select>
           </div>
-          <input type="text" placeholder="제목을 작성해주세요" />
+          <input type="title" id="title" placeholder="제목을 작성해주세요" />
         </div>
-        <input type="text" placeholder="메뉴명을 입력해주세요" />
-        <input type="text" placeholder="식당의 주소를 입력해 주세요" />
+        <input type="text" id="menu" placeholder="메뉴명을 입력해주세요" />
+        <input
+          type="text"
+          id="address"
+          placeholder="식당의 주소를 입력해 주세요"
+        />
         <textarea
+          id="review"
           cols="100"
           rows="30"
           placeholder="식당에 대한 솔직한 후기를 작성해 주세요"
           style="margin-top: 0.25rem"
         ></textarea>
         <ul>
-          <li><button class="submit">게시</button></li>
-          <li><button>수정</button></li>
-          <li><button>저장</button></li>
+          <li><button class="btn-submit">게시</button></li>
+          <!-- <li><button class="btn-modify">수정</button></li> -->
+          <li><button class="btn-save">저장</button></li>
         </ul>
       </form>
     </main>
