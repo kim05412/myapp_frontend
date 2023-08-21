@@ -1,28 +1,20 @@
-// 작성한 포스트
-function cardTemplate(item) {
-  // 1개 이상의 값 선택
-  const menuTypes = document.querySelectorAll(".menu-type");
-  const postTitle = document.querySelector("#title").value;
-  const menuName = document.querySelector("#menu").value;
-  const restaurantAddress = document.querySelector("#address").value;
-  const postContent = document.querySelector("#review").value;
-
-  const xhr = new XMLHttpRequest();
-  const url = "/post/write"; // 데이터를 전송할 URL
-  xhr.open("POST", url);
-  xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-  xhr.onreadystatechange = function () {
-    if (xhr.readyState === 4 && xhr.status === 200) {
-      console.log(xhr.responseText);
-    }
-  };
-  xhr.send(
-    JSON.stringify({
-      menuType,
-      postTitle,
-      menuName,
-      restaurantAddress,
-      postContent,
-    })
-  );
+// 포스트 templete
+function cardTemplate(writing) {
+  //문자열: ${} -> 동적데이터 삽입
+  const template = /*html*/ `                   
+  <div style="width:300px; margin-bottom:3rem;" data-no="${writing.no}">
+  <em>${writing.title}</em>
+  <p>${writing.address}</p>
+  <p>${writing.menu - type}</p>
+  <p>${writing.img}</p>
+  <hr>
+  <div style="display:flex; justify-content:space-between;">
+      <small>${new Date(
+        writing.createdTime
+      ).toLocaleString()}</small> // Data: 숫자-> 날짜/시간
+      <button class="btn-like">좋아요</button>
+    </div>
+  </div>
+  `;
+  return template;
 }
