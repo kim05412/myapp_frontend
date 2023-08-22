@@ -2,11 +2,10 @@
 (() => {
   const sidebar = document.createElement("aside"); //새로운 HTML 요소를 생성
   sidebar.style.position = "fixed"; // sticky
-  sidebar.style.height = "100vh";
+  sidebar.style.height = "280px";
   sidebar.style.width = "200px";
   sidebar.style.marginTop = "200px";
-  sidebar.style.backgroundImage =
-    "linear-gradient(white 300px, transparent 300px)";
+  sidebar.style.backgroundColor = "white";
   sidebar.style.borderRadius = "15px";
 
   sidebar.innerHTML = /*html */ `
