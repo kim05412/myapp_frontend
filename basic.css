@@ -23,11 +23,7 @@ header {
   width: 100%;
   border-radius: 15px;
 }
-/* header h1 {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-} */
+
 .catagory a {
   text-decoration: none;
   color: black;
@@ -47,6 +43,7 @@ header > div:nth-of-type(1) {
   align-items: center; /* 세로방향 */
   padding-left: 1px;
   padding-right: 1px;
+  z-index: 1 /* position: absolute; */
 }
 /* title 중심 */
 header > div:nth-of-type(2) {
@@ -69,7 +66,7 @@ header > div:nth-of-type(2) > ul {
 
   /* border: 1px solid #ccc; */
 }
-header > div:nth-of-type(2) > ul > a {
+header > div:nth-of-type(2) > ul > li {
   width: max-content; /* 내용에 따라 가로 길이 설정 */
 }
 
@@ -91,6 +88,7 @@ header li {
   position: relative;
 }
 
-.catagory a:hover {
+.catagory a:hover 
   background-color: aliceblue;
 }
+
