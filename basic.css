@@ -18,13 +18,16 @@ header {
   flex-direction: row;
   background-color: #ffa300;
   /* background-color: #ffbb0f; */
-  text-align: center;
-  align-items: center;
   padding: 1rem;
   height: 190px;
+  width: 100%;
   border-radius: 15px;
-  position: relative;
 }
+/* header h1 {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+} */
 .catagory a {
   text-decoration: none;
   color: black;
@@ -34,36 +37,39 @@ header > div:nth-of-type(1) a {
   color: black;
   padding: 5px;
 }
-
 header > div:nth-of-type(1) {
-  flex-grow: 10%;
+  flex-grow: 0.01;
   font-size: 1.5rem;
-  height: 95%;
+  height: 100%;
   background-color: aliceblue;
   border-radius: 5px;
-  padding-top: 55px;
+  display: flex;
+  align-items: center; /* 세로방향 */
   padding-left: 1px;
   padding-right: 1px;
 }
+/* title 중심 */
 header > div:nth-of-type(2) {
+  width: 100%;
   display: flex;
+  position: absolute;
   flex-direction: column;
-  height: 100%;
-  left: 15%;
-  padding: 20px;
-  position: relative;
   border-radius: 15px;
-}
-header h1 {
-  margin-top: -38px;
+  text-align: center;
 }
 
-header .catagory > ul {
+header > div:nth-of-type(2) > ul {
   list-style: none;
+  width: 92%;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
-  margin-top: 90px;
+  margin-top: 70px;
+  padding-left: 210px;
+
   /* border: 1px solid #ccc; */
+}
+header > div:nth-of-type(2) > ul > a {
   width: max-content; /* 내용에 따라 가로 길이 설정 */
 }
 
