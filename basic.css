@@ -43,7 +43,7 @@ header > div:nth-of-type(1) {
   align-items: center; /* 세로방향 */
   padding-left: 1px;
   padding-right: 1px;
-  z-index: 1 /* position: absolute; */
+  z-index: 1; /* position: absolute; */
 }
 /* title 중심 */
 header > div:nth-of-type(2) {
@@ -88,7 +88,6 @@ header li {
   position: relative;
 }
 
-.catagory a:hover 
+.catagory a:hover {
   background-color: aliceblue;
 }
-
