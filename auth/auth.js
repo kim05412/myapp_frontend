@@ -44,12 +44,11 @@ document.addEventListener("DOMContentLoaded", () => {
 // 로그아웃
 const out = document.getElementById("btn-logout");
 
-btn -
-  out.addEventListener("click", () => {
-    //  토큰 제거
-    localStorage.removeItem("token");
-    // 화면 갱신
-    window.location.reload();
-  });
+out.addEventListener("click", () => {
+  //  토큰 제거
+  localStorage.removeItem("token");
+  // 화면 갱신
+  window.location.reload();
+});
 
 // 회원가입

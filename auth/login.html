@@ -12,6 +12,23 @@
     </form>
     <button class="btn-in">로그인</button>
     <button class="btn-up"><a href="signup.html">회원가입</a></button>
+    <script>
+      // uri?a=b&c=d
+      // a=b&c=d : querystring을 객체화(map) js API
+
+      // http://localhost:5500/login.html?err=에러메시지
+      // err=에러메시지
+      // ("err": "에러메시지")
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("err")) {
+        document.querySelector("#err").innerHTML = params.get("err");
+        // alert(params.get("err"));
+
+        // history: 브라우저 탐색내역 객체
+        // repaceState: 현재 url의 정보를 변경
+        history.replaceState(null, null, "http://localhost:5500/login.html");
+      }
+    </script>
   </body>
   <script src="auth.js"></script>
 </html>
