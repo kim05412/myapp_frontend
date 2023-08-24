@@ -10,6 +10,10 @@
   searchContainer.style.backgroundColor = "white";
   searchContainer.style.borderRadius = "15px";
   searchContainer.style.border = "4px solid #FFC939";
+  searchContainer.style.position = "absolute"; // 절대 위치 설정
+  searchContainer.style.top = "100px"; // 세로 방향 중앙
+  searchContainer.style.left = "50%"; // 가로 방향 중앙
+  searchContainer.style.transform = "translate(-50%, -50%)";
 
   // 내부 요소 생성
   searchContainer.innerHTML = /*html */ `
@@ -19,16 +23,7 @@
     </form>
   `;
 
-  searchContainer.style.position = "fixed";
-  searchContainer.style.left = "50%";
-  searchContainer.style.top = "30%";
-  searchContainer.style.transform = "translate(-50%, -50%)";
-
-  // 원하는 위치에 헤더 삽입
+  // 헤더 위치에 삽입
   const targetHeader = document.querySelector("header"); // 헤더를 선택
-  const headerRect = targetHeader.getBoundingClientRect(); // 헤더의 위치와 크기 정보를 가져옴
-  document.body.appendChild(searchContainer); // searchContainer를 body에 추가
-
-  // searchContainer를 헤더의 가운데에 위치시키기 위한 계산
-  searchContainer.style.top = headerRect.top + headerRect.height / 2 + "px";
+  targetHeader.appendChild(searchContainer); // 헤더에 검색 컨테이너 추가
 })();
