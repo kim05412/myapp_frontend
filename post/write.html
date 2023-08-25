@@ -47,7 +47,7 @@
     </header>
     <main>
       <!-- 포스트 작성 -->
-      <form style="margin-bottom: 3rem">
+      <form style="margin-bottom: 3rem" name="write">
         <div>
           <!-- 메뉴 종류 선택 -->
           <div>
@@ -86,9 +86,9 @@
           </div>
           <input type="title" id="title" placeholder="제목을 작성해주세요" />
         </div>
-        <p class="divide">
-        <input type="text" id="menu" placeholder="메뉴명을 입력해주세요" />
-        <input type="file" id="fileInput" accept="image/*">
+        <p class="img">
+          <input type="text" id="menu" placeholder="메뉴명을 입력해주세요" />
+          <input type="file" id="fileInput" accept="image/*" />
         </p>
         <input
           type="text"
@@ -106,7 +106,8 @@
           <li><button class="btn-submit">게시</button></li>
           <!-- <li><button class="btn-modify">수정</button></li> -->
           <li><button class="btn-save">저장</button></li>
-        </ul> 
+        </ul>
+      </form>
     </main>
 
     <script src="/sidebar.js"></script>

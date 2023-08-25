@@ -6,12 +6,15 @@
     <title>로그인</title>
   </head>
   <body>
+    <script src="auth.js"></script>
+
     <form action="http://localhost:8080/auth/signin" method="post">
-      <input type="text" name="username" value="hong0987" />
-      <input type="password" name="password" value="password1234" />
+      <input type="text" name="username" value="김소현" />
+      <input type="password" name="password" value="rlathgus123" />
+      <button class="btn-login">로그인</button>
+      <button class="btn-signup"><a href="signup.html">회원가입</a></button>
     </form>
-    <button class="btn-in">로그인</button>
-    <button class="btn-up"><a href="signup.html">회원가입</a></button>
+
     <script>
       // uri?a=b&c=d
       // a=b&c=d : querystring을 객체화(map) js API
@@ -30,5 +33,4 @@
       }
     </script>
   </body>
-  <script src="auth.js"></script>
 </html>

@@ -6,45 +6,87 @@
     <title>회원가입</title>
   </head>
   <body>
-    <form action="http://localhost:8080/auth/signup" method="post">
+    <script src="auth.js"></script>
+    <form id="form" action="http://localhost:8080/auth/signup" method="post">
       <input
         placeholder="성명을 작성해주세요"
-        type="name"
+        type="text"
         name="username"
-        value=""
+        value="김소현"
       />
       <input
         placeholder="비밀번호를 작성해주세요"
         type="password"
         name="password"
-        value=""
+        value="rlathgus123"
       />
       <input
         placeholder="사용할 닉네임을 작성해주세요"
         type="text"
         name="nickname"
-        value=""
+        value="소현1a"
       />
       <input
         placeholder="태어난 년도를 작성해주세요"
-        type="year"
-        name="birthyear"
-        value=""
+        type="number"
+        name="year"
+        value="1997"
       />
       <input
         placeholder=" 현재 재직중 인 회사명을 작성해주세요"
         type="text"
-        name="company"
-        value=""
+        name="companyName"
+        value="company이름1"
       />
       <input
-        placeholder="회사의 주소를 작성해주세요"
-        type="address"
-        name="company"
-        value=""
+        placeholder=" 현재 재직중 인 회사명을 작성해주세요"
+        type="text"
+        name="companyAddress"
+        value="company이름1"
       />
-      <button>회원가입</button>
+      <label for="businessCard">명함 이미지 업로드</label>
+      <input
+        type="file"
+        id="businessCard"
+        name="businessCard"
+        accept="image/*"
+      />
+      <button type="submit">회원가입</button>
     </form>
+
+    <script>
+      const signupForm = document.getElementById("form");
+
+      signupForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(signupForm);
+
+        try {
+          const response = await fetch(signupForm.action, {
+            method: "POST",
+            body: formData,
+          });
+
+          if (response.ok) {
+            // 회원가입 성공 시 메시지 표시
+            alert("회원가입 성공!");
+          } else {
+            // 회원가입 실패 시 메시지 표시
+            alert("회원가입 실패.");
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          // 에러가 발생한 경우 메시지 표시
+          alert("오류가 발생했습니다.");
+        }
+      });
+    </script>
+
     <p>hong0987/password1234</p>
   </body>
 </html>
+
+<!-- // boolean type if (response.ok) { // 회원가입 성공 시 메시지 표시 const
+nickname = formData.get("nickname"); // 입력한 닉네임 가져오기 alert(
+"환영합니다! ${nickname}님 ProEatsNearby에 회원이 되신 걸 축하드립니다." ); -->

@@ -14,59 +14,48 @@
         <h1>프로 직장러들의 식당리스트</h1>
         <ul>
           <li>
-            <a href="menu/menu.html"
-              >메뉴
-              <ul class="sub-menu">
-                <li><a href="menu/asian.html">동남아식</a></li>
-                <li><a href="menu/western.html">양식</a></li>
-                <li><a href="menu/japenese.html">일식</a></li>
-                <li><a href="menu/chinese.html">중식</a></li>
-                <li><a href="menu/korean.html">한식</a></li>
-                <li><a href="menu/others.html">그외</a></li>
-              </ul></a
-            >
+            <a href="menu/menu.html">메뉴</a>
+            <ul class="sub-menu">
+              <li><a href="menu/asian.html">동남아식</a></li>
+              <li><a href="menu/western.html">양식</a></li>
+              <li><a href="menu/japenese.html">일식</a></li>
+              <li><a href="menu/chinese.html">중식</a></li>
+              <li><a href="menu/korean.html">한식</a></li>
+              <li><a href="menu/others.html">그외</a></li>
+            </ul>
           </li>
+
           <li><a href="post/new.html">새로운 식당</a></li>
           <li><a href="post/old.html">오래된 식당</a></li>
           <li><a href="post/best.html">베스트 포스팅</a></li>
           <li><a href="post/nearby.html">회사 근처</a></li>
           <li><a href="post/write.html">포스트 작성</a></li>
+
           <li class="users">
-            <a href="user/mypage.html"
-              >마이페이지
-              <ul class="sub-menu">
-                <li><a href="user/profile.html">내 프로필</a></li>
-                <li><a href="user/mines.html">내 포스트</a></li>
-                <li><a href="user/restuarants.html">내 식당</a></li>
-                <li><a href="user/likness.html">좋아요한 포스팅</a></li>
-              </ul></a
-            >
+            <a href="user/mypage.html">마이페이지</a>
+            <ul class="sub-menu">
+              <li><a href="user/profile.html">내 프로필</a></li>
+              <li><a href="user/mines.html">내 포스트</a></li>
+              <li><a href="user/restuarants.html">내 식당</a></li>
+              <li><a href="user/likness.html">좋아요한 포스팅</a></li>
+            </ul>
           </li>
-          <li class="users">
-            <!-- <button id="btn-logout">로그아웃</button> -->
-          </li>
-          <li>
-            <button><a href="auth/login.html">로그인</a></button>
-            <button><a href="auth/singup.html">회원가입</a></button>
+
+          <li class="btns">
+            <button class="btn-in"><a href="auth/login.html">로그인</a></button>
+            <button class="btn-up">
+              <a href="auth/singup.html">회원가입</a>
+            </button>
+            <div id="btn-nickname"><a href="user/mypage.html">""님</a></div>
+            <button id="btn-out">로그아웃</button>
           </li>
         </ul>
       </div>
     </header>
-    <main>
-      <!-- <h3>저장된 포스트 리스트:</h3>
-      <table>
-        <tbody></tbody>
-      </table>
-      <hr />
-      연락처삭제: <br />
-      <form action="">
-        <label>이메일: <input type="text" /></label>
-        <button>삭제</button>
-      </form> -->
-    </main>
     <!-- <script src="/auth.js"></script> -->
     <script src="sidebar.js"></script>
     <script src="search.js"></script>
     <script src="index.js"></script>
+    <script src="auth/auth.js"></script>
   </body>
 </html>

@@ -13,19 +13,23 @@
 (() => {
   //컬렉션
   const form = document.forms[0];
-  const add = form.querySelector(".btn-submit");
+  const btn = form.querySelector(".btn-submit");
   // NodeList 객체로 반환->array로 변환-> 각 요소(select)의 value값 추출->새로운 배열
-  const type = Array.from(form.querySelectorAll(".menu-type")).map(
+  const types = Array.from(form.querySelectorAll(".menu-type")).map(
     (select) => select.value
   );
-  const title = form.querySelector("title");
-  const menu = form.querySelector("menu");
+  const title = form.querySelector("#title");
+  const menu = form.querySelector("#menu");
   const review = form.querySelector("textarea");
 
-  add.addEventListener("click", async (e) => {
+  btn.addEventListener("click", async (e) => {
     e.preventDefault();
 
-    //
+    if (types.length === 0) {
+      alert("메뉴 타입을 한가지 이상 선택해주세요.");
+      return; // 폼 전송을 중지합니다.
+    }
+    // 타입 한개 이상 선택시->전송
     const response = await fetch("http://localhost:8080/posts", {
       // request: 추가
       method: "POST",
@@ -38,7 +42,7 @@
       // 요청의 본문에 실제 데이터 담음
       body: JSON.stringify({
         // JavaScript 객체를 JSON 문자열로 변환한 후 전송
-        type: type,
+        types: types,
         title: title.value,
         menu: menu.value,
         review: review.value,
@@ -48,6 +52,8 @@
     console.log(response);
     const request = await response.jason();
     console.log(result);
+
+    alert("포스트 작성이 완료 되었습니다!");
 
     // UI 추가 (display)
     document.forms[0].insertAdjacentHTML(
