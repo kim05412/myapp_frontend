@@ -14,78 +14,60 @@ function getCookie(name) {
   return matches ? decodeURIComponent(matches[1]) : undefined; // 틀은 있지만 값은 없는 상태
 }
 
-// 개인정보 없이 로그인 상태 확인-> buttun display
-//2. 상태 확인
-function checkLoginStatus() {
-  const isLoggedIn = localStorage.getItem("isLoggedIn");
-  return isLoggedIn === "true";
-}
-//1. 상태 설정
-function setLoggedInStatus(isLoggedIn) {
-  localStorage.setItem("isLoggedIn", isLoggedIn ? "true" : "false");
-  updateButtonVisibility();
-}
-//3. 상태에 따른 display
-function updateButtonVisibility() {
-  const isLoggedIn = checkLoginStatus();
-  const btnIn = document.querySelector(".btn-in");
-  const btnOut = document.querySelector(".btn-out");
-  const btnUp = document.querySelector(".btn-up");
-  const nickname = document.querySelector(".btn-nickname");
-
-  if (isLoggedIn) {
-    btnIn.style.display = "flex";
-    btnUp.style.display = "flex";
-    btnOut.style.display = "none";
-    nickname.style.display = "none";
-  } else {
-    btnIn.style.display = "none";
-    btnUp.style.display = "none";
-    btnOut.style.display = "flex";
-    nickname.style.display = "flex";
-  }
-}
-
-// 웹 페이지 로딩 시 자동으로 버튼 상태 업데이트
-updateButtonVisibility();
-
-// //로그인 토큰 여부 확인 함수
-// function isLoggedIn() {
+// 인증토큰이 없으면 로그인페이지로 튕김
+// (() => {
 //   const token = getCookie("token");
 //   console.log(token);
-//   return token !== undefined && token !== null && token !== "";
-// }
-
-// // 인증토큰이 없으면 로그인페이지로 튕김
-// if (!isLoggedIn()) {
-//   window.location.href = "/login.html";
-// }
-
-// // 로그인 여부에 따른 헤더 화면 구성
-// document.addEventListener("DOMContentLoaded", () => {
-//   const login = document.getElementById("btn-login");
-//   const up = document.getElementById("btn-signup");
-//   const users = document.getElementById("userMenu");
-
-//   //header:로그인
-//   if (isLoggedIn) {
-//     login.style.display = "none";
-//     up.style.display = "none";
-//     users.style.display = "block";
-//   } else {
-//     // hearder: 로그아웃
-//     login.style.display = "block";
-//     up.style.display = "block";
-//     users.style.display = "none";
+//   if (!token) {
+//     alert("로그인이 필요한 기능 입니다.");
+//     // 페이지를 이동시키는 window.location 객체의 속성
+//     window.location.href = "index.html";
 //   }
-// });
+// })();
 
-// // 로그아웃
-// const out = document.getElementById("btn-logout");
+// // 개인정보 없이 로그인 상태 확인-> buttun display
+// //2. 상태 확인
+// function checkLoginStatus() {
+//   const isLoggedIn = localStorage.getItem("isLoggedIn");
+//   return isLoggedIn === "true";
+// }
+// //1. 상태 설정
+// function setLoggedInStatus(isLoggedIn) {
+//   localStorage.setItem("isLoggedIn", isLoggedIn ? "true" : "false");
+//   updateButtonVisibility();
+// }
+// //3. 상태에 따른 display
+// function updateButtonVisibility() {
+//   const isLoggedIn = checkLoginStatus();
+//   const btnIn = document.querySelector(".btn-in");
+//   const btnOut = document.querySelector(".btn-out");
+//   const btnUp = document.querySelector(".btn-up");
+//   const nickname = document.querySelector(".btn-nickname");
 
-// out.addEventListener("click", () => {
-//   //  토큰 제거
-//   localStorage.removeItem("token");
-//   // 화면 갱신
-//   window.location.reload();
-// });
+//   //로그인 중
+//   if (isLoggedIn) {
+//     btnIn.style.display = "none";
+//     btnUp.style.display = "none";
+//     btnOut.style.display = "flex";
+//     nickname.style.display = "flex";
+//   } else {
+//     btnIn.style.display = "flex";
+//     btnUp.style.display = "flex";
+//     btnOut.style.display = "none";
+//     nickname.style.display = "none";
+//   }
+// }
+// // 웹 페이지 로딩 시 자동으로 버튼 상태 업데이트
+// updateButtonVisibility();
+
+// // URL에서 err 파라미터 값 추출
+// const urlParams = new URLSearchParams(window.location.search);
+// const errMessage = urlParams.get("err");
+
+// // err 파라미터가 Conflict일 경우에만 alert 창 띄우기
+// if (errMessage === "Conflict") {
+//   alert("로그인 정보가 잘못 되었습니다. 다시 로그인 해주세요");
+// }
+
+// // 리디렉션을 원하는 페이지로 이동
+// window.location.href = "/index.html";

@@ -92,19 +92,35 @@ header li {
   background-color: aliceblue;
 }
 
-.btns {
-  list-style: none;
-  display: flex; /* Flexbox 사용 */
-  justify-content: space-between; /* 버튼들 사이의 간격을 동일하게 배치 */
-  align-items: center; /* 버튼들 수직 정렬 */
+/* 로그인 */
+.log {
+  display: flex;
+  align-items: center;
+  position: absolute; /* 절대 위치 지정 */
+  top: 10pv; /* 위쪽 위치 조정 */
+  right: 1px;
+  font-size: 15px;
+}
+.log input[type="text"],
+.log input[type="password"] {
+  width: 120px;
+  padding: 1px;
+  margin-right: 1px;
 }
 
-.btns button {
-  margin: 0; /* 버튼들의 여백 제거 */
-  padding: 5px 10px;
+.btn {
+  background-color: #ffc939;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 요소들 사이의 간격을 균등하게 분배 */
+  margin-right: 25px;
+  height: 30px;
 }
-/* 버튼 display */
-
-.logged-out {
-  display: none; /* 기본적으로 숨김 */
+.btn a {
+  color: white;
+  text-decoration: none;
 }

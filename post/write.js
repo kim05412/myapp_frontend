@@ -1,13 +1,19 @@
-// 작성시 로그인
-// (() => {
-//   hiddenButton();
-//   loginLogout();
-//   const token = getCookie("token");
-//   console.log(token);
-//   if (!token) {
-//     window.location.href = "http://localhost:5500/auth/login.html";
-//   }
-// })();
+let currentPage = 0; // 현재 페이지 번호
+let isLastPage = false; // 마지막 페이지 인지 여부
+const PAGE_SIZE = 10; // 고정된 페이지 사이즈
+let currentQuery = ""; // 현재 검색 키워드
+
+//작성시 로그인
+(() => {
+  hiddenButton();
+  loginLogout();
+  const token = getCookie("token");
+  console.log(token);
+  if (!token) {
+    window.location.href = "http://localhost:5500/index.html";
+    alert("포스팅을 작성하기 위해서는 로그인이 필요합니다.");
+  }
+})();
 
 // 작성된 포스팅 추가 기능
 (() => {

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="drop-down.css" />
   </head>
   <body>
+    <script src="auth/auth.js"></script>
+    <script src="auth/login.js"></script>
     <header>
       <div><a href="index.html">ProEatsNearby</a></div>
       <div class="catagory">
@@ -40,22 +42,38 @@
               <li><a href="user/likness.html">좋아요한 포스팅</a></li>
             </ul>
           </li>
-
-          <li class="btns">
-            <button class="btn-in"><a href="auth/login.html">로그인</a></button>
-            <button class="btn-up">
-              <a href="auth/singup.html">회원가입</a>
-            </button>
-            <div id="btn-nickname"><a href="user/mypage.html">""님</a></div>
-            <button id="btn-out">로그아웃</button>
-          </li>
         </ul>
       </div>
+
+      <section class="log">
+        <form
+          id="form-login"
+          style="display: flex; justify-content: space-between"
+          action="http://localhost:8080/auth/signin"
+          method="post"
+        >
+          <input type="text" name="username" value="김소현" />
+          <input type="password" name="password" value="rlathgus123" />
+          <button type="submit" style="margin: 1px" class="btn" class="btn-in">
+            로그인
+          </button>
+        </form>
+        <div class="btn" class="btn-up">
+          <a href="auth/signup.html">회원가입</a>
+        </div>
+        <div class="btn" class="btn-nickname">
+          <a href="user/mypage.html">"name"님</a>
+        </div>
+        <button class="btn" class="btn-out">로그아웃</button>
+        <div id="err" style="color: red"></div>
+      </section>
     </header>
-    <!-- <script src="/auth.js"></script> -->
+    <main>
+      <ul id="searchResults"></ul>
+    </main>
     <script src="sidebar.js"></script>
     <script src="search.js"></script>
     <script src="index.js"></script>
-    <script src="auth/auth.js"></script>
+    <!-- 웹 페이지 로딩 시 자동으로 버튼 상태 업데이트 -->
   </body>
 </html>

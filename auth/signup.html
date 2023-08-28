@@ -7,12 +7,15 @@
   </head>
   <body>
     <script src="auth.js"></script>
-    <form id="form" action="http://localhost:8080/auth/signup" method="post">
+    <form
+      id="form-signup"
+      style="display: flex; justify-content: space-between"
+    >
       <input
-        placeholder="성명을 작성해주세요"
+        placeholder="사용할 아이디를 작성해주세요"
         type="text"
-        name="username"
-        value="김소현"
+        name="userId"
+        value="kim01"
       />
       <input
         placeholder="비밀번호를 작성해주세요"
@@ -28,7 +31,7 @@
       />
       <input
         placeholder="태어난 년도를 작성해주세요"
-        type="number"
+        type="Number"
         name="year"
         value="1997"
       />
@@ -39,10 +42,10 @@
         value="company이름1"
       />
       <input
-        placeholder=" 현재 재직중 인 회사명을 작성해주세요"
+        placeholder=" 현재 재직중 인 회사의 주소를 작성해주세요"
         type="text"
         name="companyAddress"
-        value="company이름1"
+        value="company주소1"
       />
       <label for="businessCard">명함 이미지 업로드</label>
       <input
@@ -55,38 +58,52 @@
     </form>
 
     <script>
-      const signupForm = document.getElementById("form");
+      (() => {
+        const forms = document.querySelector("form");
+        const button = document.querySelector("button");
+        const fileInput = document.getElementById("businessCard");
 
-      signupForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
+        // 회원 가입 버튼 클릭 이벤트 리스너
+        button.addEventListener("click", async (e) => {
+          e.preventDefault(); // 기본 동작 방지
 
-        const formData = new FormData(signupForm);
+          const inputs = forms.querySelectorAll("input");
+          const userId = inputs[0].value;
+          const password = inputs[1].value;
+          const nickname = inputs[2].value;
+          const year = inputs[3].value;
+          const companyName = inputs[4].value;
+          const companyAddress = inputs[5].value;
 
-        try {
-          const response = await fetch(signupForm.action, {
-            method: "POST",
-            body: formData,
-          });
+          const formData = new FormData(); // FormData 생성
+          formData.append("file", fileInput.files[0]); // 파일 추가
+          formData.append("userId", userId);
+          formData.append("password", password);
+          formData.append("nickname", nickname);
+          formData.append("year", year);
+          formData.append("companyName", companyName);
+          formData.append("companyAddress", companyAddress);
 
-          if (response.ok) {
-            // 회원가입 성공 시 메시지 표시
-            alert("회원가입 성공!");
-          } else {
-            // 회원가입 실패 시 메시지 표시
-            alert("회원가입 실패.");
+          try {
+            const response = await fetch("http://localhost:8080/auth/signup", {
+              method: "POST",
+              body: formData, // FormData 전송
+            });
+
+            if (response.ok) {
+              alert("회원가입이 완료되었습니다.");
+              window.location.replace("http://localhost:5500/index.html");
+            } else {
+              alert("회원가입 중 오류가 발생했습니다.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("서버 오류가 발생했습니다.");
           }
-        } catch (error) {
-          console.error("Error:", error);
-          // 에러가 발생한 경우 메시지 표시
-          alert("오류가 발생했습니다.");
-        }
-      });
+        });
+      })();
     </script>
 
     <p>hong0987/password1234</p>
   </body>
 </html>
-
-<!-- // boolean type if (response.ok) { // 회원가입 성공 시 메시지 표시 const
-nickname = formData.get("nickname"); // 입력한 닉네임 가져오기 alert(
-"환영합니다! ${nickname}님 ProEatsNearby에 회원이 되신 걸 축하드립니다." ); -->
