@@ -43,7 +43,6 @@
           </li>
         </ul>
       </div>
-
       <section class="log">
         <form
           id="form-login"
@@ -53,23 +52,23 @@
         >
           <input type="text" name="userId" value="kim01" />
           <input type="password" name="password" value="password1234" />
-          <button type="submit" class="btn" class="btn-in">로그인</button>
+          <button type="submit" class="btn" id="btn-in">로그인</button>
         </form>
-        <div class="btn" class="btn-up">
+        <div id="btn-up" class="btn">
           <a href="auth/signup.html">회원가입</a>
         </div>
-        <div class="btn" class="btn-nickname">
-          <a href="user/mypage.html">"name"님</a>
+        <div id="btn-nickname" class="btn">
+          <a href="user/mypage.html"></a>
         </div>
-        <button class="btn" class="btn-out">로그아웃</button>
-        <div id="err" style="color: red"></div>
+        <button id="btn-out" class="btn">로그아웃</button>
+        <!-- <div id="err" style="color: red"></div> -->
       </section>
     </header>
     <main>
       <!-- <ul id="searchResults"></ul> -->
     </main>
     <script src="sidebar.js"></script>
-    <script src="search.js"></script>
+    <!-- <script src="search.js"></script> -->
     <script src="index.js"></script>
     <script src="auth/login.js"></script>
     <!-- 웹 페이지 로딩 시 자동으로 버튼 상태 업데이트 -->

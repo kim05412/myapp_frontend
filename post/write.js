@@ -1,8 +1,3 @@
-let currentPage = 0; // 현재 페이지 번호
-let isLastPage = false; // 마지막 페이지 인지 여부
-const PAGE_SIZE = 10; // 고정된 페이지 사이즈
-let currentQuery = ""; // 현재 검색 키워드
-
 //작성시 로그인
 (() => {
   hiddenButton();
@@ -10,7 +5,7 @@ let currentQuery = ""; // 현재 검색 키워드
   const token = getCookie("token");
   console.log(token);
   if (!token) {
-    window.location.href = "http://localhost:5500/index.html";
+    window.location.href = "http://localhost:5500";
     alert("포스팅을 작성하기 위해서는 로그인이 필요합니다.");
   }
 })();
@@ -19,17 +14,19 @@ let currentQuery = ""; // 현재 검색 키워드
 (() => {
   //컬렉션
   const form = document.forms[0];
-  const btn = form.querySelector(".btn-submit");
+  const btnSubmit = form.querySelector(".btn-submit");
   // NodeList 객체로 반환->array로 변환-> 각 요소(select)의 value값 추출->새로운 배열
   const types = Array.from(form.querySelectorAll(".menu-type")).map(
     (select) => select.value
   );
   const title = form.querySelector("#title");
   const menu = form.querySelector("#menu");
+  const address = form.querySelector("#address");
   const review = form.querySelector("textarea");
 
-  btn.addEventListener("click", async (e) => {
+  btnSubmit.addEventListener(async (e) => {
     e.preventDefault();
+    const select = document.forms[0].querySelector("select");
 
     if (types.length === 0) {
       alert("메뉴 타입을 한가지 이상 선택해주세요.");
@@ -42,7 +39,7 @@ let currentQuery = ""; // 현재 검색 키워드
       headers: {
         // 요청의 본문이 JSON 형식임을 서버에 알려줌.
         "Content-Type": "application/json",
-        // 인증토큰 서버로
+        //인증토큰 서버로
         // Authorization: `Bearer ${getCookie("token")}`,
       },
       // 요청의 본문에 실제 데이터 담음
@@ -51,6 +48,7 @@ let currentQuery = ""; // 현재 검색 키워드
         types: types,
         title: title.value,
         menu: menu.value,
+        address: address.value,
         review: review.value,
       }),
     });
@@ -63,7 +61,7 @@ let currentQuery = ""; // 현재 검색 키워드
 
     // UI 추가 (display)
     document.forms[0].insertAdjacentHTML(
-      "afterend",
+      "beforeend",
       cardTemplate(request.data)
     );
   });
