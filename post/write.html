@@ -103,15 +103,93 @@
           style="margin-top: 0.25rem"
         ></textarea>
         <ul>
-          <li><button class="btn-submit">게시</button></li>
+          <li><button type="submit" class="btn-submit">게시</button></li>
           <!-- <li><button class="btn-modify">수정</button></li> -->
           <li><button class="btn-save">저장</button></li>
         </ul>
       </form>
     </main>
+    <script>
+      //작성시 로그인
+      // (() => {
+      //   hiddenButton();
+      //   loginLogout();
+      //   const token = getCookie("token");
+      //   console.log(token);
+      //   if (!token) {
+      //     window.location.href = "http://localhost:5500";
+      //     alert("포스팅을 작성하기 위해서는 로그인이 필요합니다.");
+      //   }
+      // })();
 
+      // 제출버튼 -> 추가 기능
+      (() => {
+        //컬렉션
+        const form = document.querySelector("form");
+        const btnSubmit = form.querySelector(".btn-submit");
+        const filesInput = document.getElementById("fileInput");
+        // NodeList 객체로 반환->array로 변환-> 각 요소(select)의 value값 추출->새로운 배열
+        const types = Array.from(form.querySelectorAll(".menu-type")).map(
+          (select) => select.value
+        );
+        const title = form.querySelector("#title");
+        const menu = form.querySelector("#menu");
+        const address = form.querySelector("#address");
+        const review = form.querySelector("textarea");
+
+        btnSubmit.addEventListener(async (e) => {
+          e.preventDefault();
+          const formData = new FormData();
+          // 여러 개의 파일 추가
+          for (const file of filesInput.files) {
+            formData.append("files[]", file);
+          }
+
+          formData.append("types", JSON.stringify(types));
+          formData.append("title", title.value);
+          formData.append("menu", menu.value);
+          formData.append("address", address.value);
+          formData.append("review", review.value);
+
+          try {
+            const response = await fetch("http://localhost:8080/posts", {
+              method: "POST",
+              body: formData, // FormData 전송
+            });
+
+            if (response.ok) {
+              alert("포스트 작성 완료.");
+              window.location.replace("http://localhost:5500");
+            } else {
+              alert("포스트 작성 중 오류가 발생.");
+            }
+          } catch (error) {
+            console.error("Error:", error);
+            alert("서버 오류가 발생했습니다.");
+          }
+        });
+      })();
+      // 여러 파일 추가
+      const filesInput = document.getElementById("fileInput");
+      files.setAttribute("multiple", "multiple");
+
+      filesInput.addEventListener("change", (event) => {
+        const selectedFiles = event.target.files; // 여러 개의 선택된 파일들의 목록
+
+        // 선택된 각 파일에 대한 처리
+        for (const file of selectedFiles) {
+          // file은 각각의 선택된 파일을 나타냄
+          console.log(file.name); // 파일 이름 출력 또는 다른 원하는 작업 수행
+        }
+      });
+      // UI 추가 (display)
+      // document.forms[0].insertAdjacentHTML(
+      //   "beforeend",
+      //   cardTemplate(request.data)
+      // );
+    </script>
     <script src="/sidebar.js"></script>
     <script src="/search.js"></script>
-    <script src="write.js"></script>
+    <!-- <script src="write.js"></script> -->
   </body>
 </html>

@@ -11,12 +11,14 @@ loginForm.addEventListener("submit", async (e) => {
       body: formData,
     });
 
-    // 응답 처리
+    // 응답 처리 ([302].includes(response.status))
     if (response.ok) {
       const responseData = await response.json();
       const nickname = responseData.nickname;
-      alert("${nickname}님! 오늘도 ProEatsNearby와 함께 즐거운 식사 되세요!");
-      window.location.replace("http://localhost:5500");
+      alert(
+        `${nickname}` + "님! 오늘도 ProEatsNearby와 함께 즐거운 식사 되세요!"
+      );
+      // window.location.replace("http://localhost:5500");
     } else {
       alert("로그인 중 오류가 발생했습니다.");
     }
@@ -59,7 +61,7 @@ loginForm.addEventListener("submit", async (e) => {
 //   }
 // }
 // 웹 페이지 로딩 시 자동으로 버튼 상태 업데이트
-updateButtonVisibility();
+// updateButtonVisibility();
 
 // // 로그아웃
 // const logoutButton = document.getElementById("#btn-out");
