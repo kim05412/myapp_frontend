@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="drop-down.css" />
   </head>
   <body>
-    <script src="auth/auth.js"></script>
     <header>
       <div><a href="index.html">ProEatsNearby</a></div>
       <div class="catagory">
@@ -50,23 +49,29 @@
           action="http://localhost:8080/auth/signin"
           method="post"
         >
-          <input type="text" name="userId" value="kim01" />
-          <input type="password" name="password" value="password1234" />
+          <input class="input" type="text" name="userId" value="kim01" />
+          <input
+            class="input"
+            type="password"
+            name="password"
+            value="password1234"
+          />
           <button type="submit" class="btn" id="btn-in">로그인</button>
         </form>
         <div id="btn-up" class="btn">
           <a href="auth/signup.html">회원가입</a>
         </div>
         <div id="btn-nickname" class="btn">
-          <a href="user/mypage.html"></a>
+          <a href="user/mypage.html">slrspdla</a>
         </div>
-        <button id="btn-out" class="btn">로그아웃</button>
+        <button type="submit" id="btn-out" class="btn">로그아웃</button>
         <!-- <div id="err" style="color: red"></div> -->
       </section>
     </header>
     <main>
       <!-- <ul id="searchResults"></ul> -->
     </main>
+    <script src="auth/auth.js"></script>
     <script src="sidebar.js"></script>
     <!-- <script src="search.js"></script> -->
     <script src="index.js"></script>
