@@ -112,8 +112,8 @@
     <script>
       //작성시 로그인
       (() => {
-        hiddenButton();
-        loginLogout();
+        // hiddenButton();
+        // loginLogout();
         const token = getCookie("token");
         console.log(token);
         if (!token) {
@@ -188,8 +188,10 @@
       //   cardTemplate(request.data)
       // );
     </script>
+    <script src="/auth/auth.js"></script>
     <script src="/sidebar.js"></script>
     <script src="/search.js"></script>
+    <script src="auth/login.js"></script>
     <!-- <script src="write.js"></script> -->
   </body>
 </html>

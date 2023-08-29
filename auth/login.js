@@ -19,10 +19,7 @@ loginForm.addEventListener("submit", async (e) => {
       // 토큰과 닉네임을 로컬 스토리지에 저장
       localStorage.setItem("token", token);
       localStorage.setItem("nickname", nickname);
-      // 닉네임을 활용한 함수 정의
-      function tokenNickname(nickname) {
-        return `${nickname}`;
-      }
+
       alert(
         `${nickname}` + "님! 오늘도 ProEatsNearby와 함께 즐거운 식사 되세요!"
       );
