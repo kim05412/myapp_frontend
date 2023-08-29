@@ -2,14 +2,27 @@ const loginForm = document.getElementById("form-login");
 
 loginForm.addEventListener("submit", async (e) => {
   e.preventDefault();
+  // 폼 데이터 가져오기
+  const formData = new FormData(loginForm);
+  // 서버로 요청 보내기
+  try {
+    const response = await fetch(loginForm.action, {
+      method: "POST",
+      body: formData,
+    });
 
+    // 응답 처리
     if (response.ok) {
       alert("로그인이 완료되었습니다.");
-      window.location.replace("http://localhost:5502");
+      window.location.replace("http://localhost:5500");
     } else {
       alert("로그인 중 오류가 발생했습니다.");
     }
-  });
+  } catch (error) {
+    console.error("Error sending login request:", error);
+    alert("로그인 중 오류가 발생했습니다.");
+  }
+});
 
 // // 개인정보 없이 로그인 상태 확인-> buttun display
 // //2. 상태 확인

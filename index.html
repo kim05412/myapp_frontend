@@ -9,7 +9,6 @@
   </head>
   <body>
     <script src="auth/auth.js"></script>
-    <script src="auth/login.js"></script>
     <header>
       <div><a href="index.html">ProEatsNearby</a></div>
       <div class="catagory">
@@ -52,11 +51,9 @@
           action="http://localhost:8080/auth/signin"
           method="post"
         >
-          <input type="text" name="userId" value="" />
-          <input type="password" name="password" value="" />
-          <button class="btn" class="btn-in">
-            로그인
-          </button>
+          <input type="text" name="userId" value="kim01" />
+          <input type="password" name="password" value="password1234" />
+          <button type="submit" class="btn" class="btn-in">로그인</button>
         </form>
         <div class="btn" class="btn-up">
           <a href="auth/signup.html">회원가입</a>
@@ -69,11 +66,12 @@
       </section>
     </header>
     <main>
-      <ul id="searchResults"></ul>
+      <!-- <ul id="searchResults"></ul> -->
     </main>
     <script src="sidebar.js"></script>
     <script src="search.js"></script>
     <script src="index.js"></script>
+    <script src="auth/login.js"></script>
     <!-- 웹 페이지 로딩 시 자동으로 버튼 상태 업데이트 -->
   </body>
 </html>

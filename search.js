@@ -27,14 +27,12 @@ let currentQuery = ""; // 현재 검색 키워드
       <button id="btn-search" style="width: 15%; background-color: #ccc; border-radius: 0 10px 10px 0; border:none;">검색</button>
     </form>
   `;
-
   // 헤더 위치에 삽입
   const targetHeader = document.querySelector("header"); // 헤더를 선택
   targetHeader.appendChild(searchContainer); // 헤더에 검색 컨테이너 추가
 })();
 
 const searchResultsElement = document.getElementById("searchResults");
-const searchButton = document.getElementById("searchButton");
 
 // 검색 결과를 표시하는 함수
 function displaySearchResults(data) {
@@ -52,6 +50,7 @@ function displaySearchResults(data) {
 }
 
 // 검색 버튼 클릭 시 실행되는 함수
+const searchButton = document.getElementById("searchButton");
 searchButton.addEventListener("click", () => {
   currentPage = 0; // 검색어가 바뀌면 페이지를 초기화합니다.
   isLastPage = false;
