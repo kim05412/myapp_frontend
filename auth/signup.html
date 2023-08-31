@@ -49,13 +49,13 @@
         name="companyAddress"
         value="company주소1"
       />
-      <label for="businessCard">명함 이미지 업로드</label>
+      <!-- <label for="businessCard">명함 이미지 업로드</label>
       <input
         type="file"
         id="businessCard"
         name="businessCard"
         accept="image/*"
-      />
+      /> -->
       <button type="submit">회원가입</button>
     </form>
 
@@ -63,7 +63,7 @@
       (() => {
         const form = document.querySelector("form");
         const button = document.querySelector("button");
-        const fileInput = document.getElementById("businessCard");
+        // const fileInput = document.getElementById("businessCard");
 
         // 회원 가입 버튼 클릭 이벤트 리스너
         button.addEventListener("click", async (e) => {
@@ -78,7 +78,7 @@
           const companyAddress = inputs[5].value;
 
           const formData = new FormData(); // FormData 생성
-          formData.append("file", fileInput.files[0]); // 파일 추가
+          // formData.append("file", fileInput.files[0]); // 파일 추가
           formData.append("userId", userId);
           formData.append("password", password);
           formData.append("nickname", nickname);

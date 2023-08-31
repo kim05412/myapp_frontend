@@ -1,0 +1,134 @@
+<!-- <body>
+    <form
+      id="form-signup"
+      style="display: flex; justify-content: space-between"
+      action="http://localhost:8080/auth/signup"
+      method="post"
+    >
+      <input
+        placeholder="사용할 아이디를 작성해주세요"
+        type="text"
+        name="userId"
+        value="kim01"
+      />
+      <input
+        placeholder="비밀번호를 작성해주세요"
+        type="password"
+        name="password"
+        value="password1234"
+      />
+      <input
+        placeholder="사용할 닉네임을 작성해주세요"
+        type="text"
+        name="nickname"
+        value="소현1a"
+      />
+      <input
+        placeholder="태어난 년도를 작성해주세요"
+        type="Number"
+        name="year"
+        value="1997"
+      />
+      <input
+        placeholder=" 현재 재직중 인 회사명을 작성해주세요"
+        type="text"
+        name="companyName"
+        value="company이름1"
+      />
+      <input
+        placeholder=" 현재 재직중 인 회사의 주소를 작성해주세요"
+        type="text"
+        name="companyAddress"
+        value="company주소1"
+      />
+      <label>이미지 업로드</label>
+      <input type="file" class="file" name="file" accept="image/*" />
+      <button type="submit">회원가입</button>
+    </form> -->
+
+<!-- <script>
+            (() => {
+              const form = document.querySelector("form");
+              const button = document.querySelector("button");
+
+              // 회원 가입 버튼 클릭 이벤트 리스너
+              button.addEventListener("click", async (e) => {
+                e.preventDefault(); // 기본 동작 방지
+
+                const inputs = form.querySelectorAll("input");
+                const userId = inputs[0].value;
+                const password = inputs[1].value;
+                const nickname = inputs[2].value;
+                const year = inputs[3].value;
+                const companyName = inputs[4].value;
+                const companyAddress = inputs[5].value;
+
+                // 필수 입력 체크
+                let hasEmptyValue = false;
+
+                inputs.forEach((input) => {
+                  if (!input.value) {
+                    hasEmptyValue = true;
+                  }
+                });
+                if (hasEmptyValue) {
+                  alert("모든 필수 입력값을 작성해주세요.");
+                  return; // 전송 중지
+                }
+
+                // 이미지 파일 선택
+      const loadedFileInput = form.querySelector(".file");
+      const loadedFile = loadedFileInput.files[0]; // 첫 번째 선택된 파일
+
+      if (!loadedFile) {
+        alert("재직 증명 인증 할 수 있는 파일을 필수로 업로드해야 합니다.");
+        return; // 전송 중지
+      }
+
+      const reader = new FileReader();
+      reader.readAsDataURL(loadedFile);
+      reader.addEventListener("load", async (e) => {
+        const imageDataString = reader.result.split(",")[1]; //실제 데이터 추출
+
+        const formData = new FormData(); // FormData 생성
+        formData.append("userId", userId);
+        formData.append("password", password);
+        formData.append("nickname", nickname);
+        formData.append("year", year);
+        formData.append("companyName", companyName);
+        formData.append("companyAddress", companyAddress);
+        formData.append("file", imageDataString);
+
+        // 데이터 서버에 전송하고, UI요소 생성하는 함수 호출
+        await sendFormData(formData);
+      });
+
+              // 데이터를 서버에 전송하고, UI요소 생성하는 함수
+              async function sendFormData(formData) {
+                try {
+                  const response = await fetch("http://localhost:8080/auth/signup", {
+                    method: "POST",
+                    body: formData, // FormData 전송
+                  });
+
+                  if (response.ok) {
+                    const responseData = await response.json();
+                    const nickname = responseData.nickname;
+                    alert(
+                      `${nickname}` + "님 환영합니다! 회원가입이 완료되었습니다."
+                    );
+                    window.location.replace("http://localhost:5500");
+                  } else {
+                    alert("회원가입 중 오류가 발생했습니다.");
+                  }
+                } catch (error) {
+                  console.error("Error:", error);
+                  alert("서버 오류가 발생했습니다.");
+                }
+              }
+            })();
+    </script>
+
+    <p>hong0987/password1234</p>
+  </body>
+</html> -->

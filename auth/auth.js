@@ -25,67 +25,22 @@ function hiddenButton() {
   const btnOut = document.getElementById("btn-out");
   const btnUp = document.getElementById("btn-up");
   const nicknameElement = document.getElementById("btn-nickname");
-  const inputs = document.querySelectorAll(".input");
+  // const inputs = document.querySelectorAll(".input");
 
   if (!token) {
-    btnIn.style.display = "flex";
-    btnUp.style.display = "flex";
+    btnIn.style.display = "block";
+    btnUp.style.display = "block";
     btnOut.style.display = "none";
     nicknameElement.style.display = "none";
-    inputs.forEach((input) => {
-      input.style.display = "block";
-    });
   } else {
     btnIn.style.display = "none";
     btnUp.style.display = "none";
-    inputs.forEach((input) => {
-      input.style.display = "none";
-    });
-    btnOut.style.display = "flex";
-
+    btnOut.style.display = "block";
+    //${}표시
     const storedNickname = localStorage.getItem("nickname");
     if (storedNickname) {
       nicknameElement.style.display = "block"; // 이름을 표시할 때 보이도록 설정
       nicknameElement.textContent = `${storedNickname}` + "님";
-    } else {
-      nicknameElement.style.display = "none";
     }
   }
 }
-
-//로그아웃
-const logoutButton = document.getElementById("btn-out");
-logoutButton.addEventListener("click", async (e) => {
-  e.preventDefault();
-
-  const storedToken = localStorage.getItem("token");
-
-  // 서버로 보낼 JSON 데이터 생성
-  const requestData = {
-    token: storedToken,
-  };
-
-  try {
-    const response = await fetch("http://localhost:8080/auth/logout", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${storedToken}`,
-      },
-      body: JSON.stringify(requestData), // JSON 데이터를 문자열로 변환하여 요청 본문에 추가
-    });
-
-    if (response.ok) {
-      // 서버에서 로그아웃 성공적으로 처리되면 클라이언트도 로그아웃 처리
-      localStorage.removeItem("token");
-      localStorage.removeItem("nickname");
-      alert("로그아웃 되었습니다.");
-      window.location.replace("http://localhost:5500");
-    } else {
-      alert("로그아웃 중 오류가 발생했습니다.");
-    }
-  } catch (error) {
-    console.error("Error", error);
-    alert("로그아웃 중 오류가 발생했습니다.");
-  }
-});
