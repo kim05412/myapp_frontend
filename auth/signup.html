@@ -6,18 +6,15 @@
     <title>회원가입</title>
   </head>
   <body>
-    <script src="auth.js"></script>
     <form
       id="form-signup"
       style="display: flex; justify-content: space-between"
-      action="http://localhost:8080/auth/signup"
-      method="post"
     >
       <input
         placeholder="사용할 아이디를 작성해주세요"
         type="text"
         name="userId"
-        value="kim01"
+        value="id1234"
       />
       <input
         placeholder="비밀번호를 작성해주세요"
@@ -29,7 +26,7 @@
         placeholder="사용할 닉네임을 작성해주세요"
         type="text"
         name="nickname"
-        value="소현1a"
+        value="nick1234"
       />
       <input
         placeholder="태어난 년도를 작성해주세요"
@@ -41,29 +38,25 @@
         placeholder=" 현재 재직중 인 회사명을 작성해주세요"
         type="text"
         name="companyName"
-        value="company이름1"
+        value="company이름1234"
       />
       <input
         placeholder=" 현재 재직중 인 회사의 주소를 작성해주세요"
         type="text"
         name="companyAddress"
-        value="company주소1"
+        value="company주소1234"
       />
-      <!-- <label for="businessCard">명함 이미지 업로드</label>
-      <input
-        type="file"
-        id="businessCard"
-        name="businessCard"
-        accept="image/*"
-      /> -->
+      <label for="file"
+        >이미지 업로드
+        <input type="file" id="file" name="file" accept="image/*"
+      /></label>
       <button type="submit">회원가입</button>
     </form>
-
+    <!-- 
     <script>
       (() => {
         const form = document.querySelector("form");
         const button = document.querySelector("button");
-        // const fileInput = document.getElementById("businessCard");
 
         // 회원 가입 버튼 클릭 이벤트 리스너
         button.addEventListener("click", async (e) => {
@@ -77,39 +70,122 @@
           const companyName = inputs[4].value;
           const companyAddress = inputs[5].value;
 
-          const formData = new FormData(); // FormData 생성
-          // formData.append("file", fileInput.files[0]); // 파일 추가
-          formData.append("userId", userId);
-          formData.append("password", password);
-          formData.append("nickname", nickname);
-          formData.append("year", year);
-          formData.append("companyName", companyName);
-          formData.append("companyAddress", companyAddress);
+          // 필수 입력 체크
+          let hasEmptyValue = false;
 
-          try {
-            const response = await fetch("http://localhost:8080/auth/signup", {
-              method: "POST",
-              body: formData, // FormData 전송
-            });
-
-            if (response.ok) {
-              const responseData = await response.json();
-              const nickname = responseData.nickname;
-              alert(
-                `${nickname}` + "님 환영합니다! 회원가입이 완료되었습니다."
-              );
-              window.location.replace("http://localhost:5500");
-            } else {
-              alert("회원가입 중 오류가 발생했습니다.");
+          inputs.forEach((input) => {
+            if (!input.value) {
+              hasEmptyValue = true;
             }
-          } catch (error) {
-            console.error("Error:", error);
-            alert("서버 오류가 발생했습니다.");
+          });
+          if (hasEmptyValue) {
+            alert("모든 필수 입력값을 작성해주세요.");
+            return; // 전송 중지
           }
+
+          // // 이미지 파일 선택
+          // const fileInput = document.getElementById("file");
+          // if (!fileInput.length) {
+          //   alert("재직 증명 인증 할 수 있는 파일을 필수로 업로드해야 합니다.");
+          //   return; // 전송 중지
+          // }
+
+          // 데이터 서버에 전송하고 , UI요소 생성
+          async function createProfile(image) {
+            /// --- 서버전송하면 UI 생성
+
+            // 서버에 데이터를 전송
+            // fetch(url, options)
+
+            try {
+              const response = await fetch(
+                "http://localhost:8080/auth/signup",
+                {
+                  method: "POST",
+                  body: formData, // FormData 전송
+                }
+              );
+
+              if (response.ok) {
+                const responseData = await response.json();
+                const nickname = responseData.nickname;
+                alert(
+                  `${nickname}` + "님 환영합니다! 회원가입이 완료되었습니다."
+                );
+                window.location.replace("http://localhost:5500");
+              } else {
+                alert("회원가입 중 오류가 발생했습니다.");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              alert("서버 오류가 발생했습니다.");
+            }
+            console.log(response);
+
+            // 화면에 요소를 추가하는 것은 데이터 처리가 정상적으로 된 다음에
+            // 서버에서 응답받은 데이터
+            const { data } = result;
+
+            // --- 3. 어딘가(부모, 다른요소)에 추가한다(append, prepend);
+            document
+              .querySelector("tbody")
+              .prepend(
+                createRow(
+                  data.userId,
+                  data.password,
+                  data.nickname,
+                  data.year,
+                  data.companyName,
+                  data.companyAddress,
+                  data.file
+                )
+              );
+            form.reset();
+          }
+
+          const reader = new FileReader();
+          reader.readAsDataURL(fileInput.file[0]);
+          reader.addEventListener("load", async (e) => {
+            const imageDataString = reader.result.split(",")[1]; //실제 데이터 추출
+
+            const formData = new FormData(); // FormData 생성
+            formData.append("userId", userId);
+            formData.append("password", password);
+            formData.append("nickname", nickname);
+            formData.append("year", year);
+            formData.append("companyName", companyName);
+            formData.append("companyAddress", companyAddress);
+            formData.append("file", imageDataString);
+
+            try {
+              const response = await fetch(
+                "http://localhost:8080/auth/signup",
+                {
+                  method: "POST",
+                  body: formData, // FormData 전송
+                }
+              );
+
+              if (response.ok) {
+                const responseData = await response.json();
+                const nickname = responseData.nickname;
+                alert(
+                  `${nickname}` + "님 환영합니다! 회원가입이 완료되었습니다."
+                );
+                window.location.replace("http://localhost:5500");
+              } else {
+                alert("회원가입 중 오류가 발생했습니다.");
+              }
+            } catch (error) {
+              console.error("Error:", error);
+              alert("서버 오류가 발생했습니다.");
+            }
+          });
         });
       })();
-    </script>
-
+    </script> -->
+    <!-- <script src="auth.js"></script> -->
     <p>hong0987/password1234</p>
+    <script src="signup.js"></script>
   </body>
 </html>

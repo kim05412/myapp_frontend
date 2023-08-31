@@ -1,3 +1,14 @@
+// function getCookie(name) {
+//   let matches = document.cookie.match(
+//     new RegExp(
+//       "(?:^|; )" +
+//         name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
+//         "=([^;]*)"
+//     )
+//   );
+//   return matches ? decodeURIComponent(matches[1]) : undefined;
+// }
+
 // 화면 로딩 시 실행
 document.addEventListener("DOMContentLoaded", () => {
   hiddenButton();
@@ -25,22 +36,61 @@ function hiddenButton() {
   const btnOut = document.getElementById("btn-out");
   const btnUp = document.getElementById("btn-up");
   const nicknameElement = document.getElementById("btn-nickname");
-  // const inputs = document.querySelectorAll(".input");
+  const inputs = document.querySelectorAll(".input");
 
   if (!token) {
-    btnIn.style.display = "block";
-    btnUp.style.display = "block";
+    btnIn.style.display = "flex";
+    btnUp.style.display = "flex";
     btnOut.style.display = "none";
     nicknameElement.style.display = "none";
+    inputs.forEach((input) => {
+      input.style.display = "block";
+    });
   } else {
     btnIn.style.display = "none";
     btnUp.style.display = "none";
-    btnOut.style.display = "block";
-    //${}표시
+    inputs.forEach((input) => {
+      input.style.display = "none";
+    });
+    btnOut.style.display = "flex";
+
     const storedNickname = localStorage.getItem("nickname");
     if (storedNickname) {
       nicknameElement.style.display = "block"; // 이름을 표시할 때 보이도록 설정
       nicknameElement.textContent = `${storedNickname}` + "님";
+    } else {
+      nicknameElement.style.display = "none";
     }
   }
 }
+
+// const btnOut = document.getElementById("btn-out");
+
+// btnOut.addEventListener("submit", async () => {
+//   try {
+//     const response = await fetch("http://localhost:8080/auth/logout", {
+//       method: "POST",
+//     });
+
+//     if (response.ok) {
+//       const responseData = await response.json();
+//       if (responseData.status === "success") {
+//         alert(responseData.message);
+
+//         // 로그아웃 성공한 경우 토큰 및 닉네임을 로컬 스토리지에서 제거
+//         localStorage.removeItem("token");
+//         localStorage.removeItem("nickname");
+
+//         // 로그아웃 성공 메시지 출력 후 로그인 페이지로 리디렉션
+//         window.location.replace("http://localhost:5500");
+//       } else {
+//         alert("로그아웃 실패");
+//       }
+//     } else {
+//       alert("로그아웃 중 오류가 발생했습니다.");
+//     }
+//   } catch (error) {
+//     console.error("Error", error);
+//     alert("로그아웃 중 오류가 발생했습니다.");
+//   }
+// });
