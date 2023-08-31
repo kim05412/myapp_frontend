@@ -1,14 +1,3 @@
-// function getCookie(name) {
-//   let matches = document.cookie.match(
-//     new RegExp(
-//       "(?:^|; )" +
-//         name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
-//         "=([^;]*)"
-//     )
-//   );
-//   return matches ? decodeURIComponent(matches[1]) : undefined;
-// }
-
 // 화면 로딩 시 실행
 document.addEventListener("DOMContentLoaded", () => {
   hiddenButton();

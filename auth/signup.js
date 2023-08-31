@@ -52,8 +52,10 @@
       // 응답에 따른
       const result = await response.json();
       console.log(result);
+      const nickname = result.nickname;
+
       if (response.ok) {
-        alert("회원 가입 성공");
+        alert(`${nickname}` + "회원 가입 성공");
         window.location.replace("http://localhost:5502");
       } else {
         alert("회원가입 실패");
