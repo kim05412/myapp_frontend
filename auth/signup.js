@@ -61,21 +61,5 @@
         alert("회원가입 실패");
       }
     }
-    if (file.files[0]) {
-      // 파일이 있을 때
-      const reader = new FileReader();
-      // reader로 파일을 읽기가 완료되면 실행되면 이벤트 핸들러 함수
-      reader.addEventListener("load", async (e) => {
-        console.log(e);
-        // file -> base64 data-url
-        const image = e.target.result;
-        sendData(image);
-      });
-      // 파일을 dataURL(base64)로 읽음
-      reader.readAsDataURL(file.files[0]);
-    } else {
-      // 파일이 없을 때
-      sendData();
-    }
   });
 })();

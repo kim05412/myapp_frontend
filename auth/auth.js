@@ -47,6 +47,12 @@ function hiddenButton() {
     if (storedNickname) {
       nicknameElement.style.display = "block"; // 이름을 표시할 때 보이도록 설정
       nicknameElement.textContent = `${storedNickname}` + "님";
+      // 클릭 이벤트 추가
+      nicknameElement.addEventListener("click", function () {
+        // 이동할 페이지 URL을 여기에 입력하세요
+        const targetPageURL = "http://192.168.100.94:5502/user/mypage.html";
+        window.location.href = targetPageURL;
+      });
     } else {
       nicknameElement.style.display = "none";
     }

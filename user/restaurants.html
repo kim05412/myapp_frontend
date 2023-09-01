@@ -17,6 +17,31 @@
           <li><a href="likeness.html">좋아요한 포스트</a></li>
         </ul>
       </div>
+      <section class="log">
+        <form
+          id="form-login"
+          style="display: flex; justify-content: space-between"
+          action="http://localhost:8080/auth/signin"
+          method="post"
+        >
+          <input class="input" type="text" name="userId" value="아이디" />
+          <input
+            class="input"
+            type="password"
+            name="password"
+            value="password1234"
+          />
+          <button type="submit" class="btn" id="btn-in">로그인</button>
+        </form>
+        <div id="btn-up" class="btn">
+          <a href="auth/signup.html">회원가입</a>
+        </div>
+        <div id="btn-nickname" class="btn">
+          <a href="mypage.html"></a>
+        </div>
+        <button type="submit" id="btn-out" class="btn">로그아웃</button>
+        <!-- <div id="err" style="color: red"></div> -->
+      </section>
     </header>
     <main>
       <form action="">
