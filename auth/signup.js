@@ -23,15 +23,22 @@
         hasEmptyValue = true;
       }
     });
+
     if (hasEmptyValue) {
       alert("모든 필수 입력값을 작성해주세요.");
       return; // 전송 중지
     }
 
-    async function sendData(image) {
-      console.log(userId.value);
+    // // 파일이 선택되었는지 확인
+    // if (!file.files[0]) {
+    //   alert("파일을 선택해주세요.");
+    //   return;
+    // }
+
+    async function sendData(fileDataString) {
       // 서버에 데이터 전송
       const response = await fetch("http://localhost:8080/auth/signup", {
+        // 상대 경로로 수정
         // HTTP Method
         method: "POST",
         // 보낼 데이터 형식은 json
@@ -42,24 +49,25 @@
           userId: userId.value,
           password: password.value,
           nickname: nickname.value,
-          year: year.value,
+          year: year.value, // 정수로 변환된 값 사용
           companyName: companyName.value,
           companyAddress: companyAddress.value,
-          file: file.value,
+          fileDataString: fileDataString ? fileDataString : null,
         }),
       });
-      console.log(response);
-      // 응답에 따른
-      const result = await response.json();
-      console.log(result);
-      const nickname = result.nickname;
+    }
 
-      if (response.ok) {
-        alert(`${nickname}` + "회원 가입 성공");
-        window.location.replace("http://localhost:5502");
-      } else {
-        alert("회원가입 실패");
-      }
+    // 파일이 선택되었는지 확인
+    if (file.files[0]) {
+      // 파일 리더 이벤트 핸들러 설정
+      const reader = new FileReader();
+      reader.addEventListener("load", async (e) => {
+        const fileDataString = e.target.result.split(",")[1]; // 실제 데이터 추출;
+        sendData(fileDataString);
+      });
+      reader.readAsDataURL(file.files[0]);
+      alert("회원가입이 완료되었습니다.");
+      window.location.href = `http://localhost:5502`;
     }
   });
 })();

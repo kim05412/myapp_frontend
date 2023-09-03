@@ -6,12 +6,7 @@
     <title>Document</title>
   </head>
   <body>
-    <form
-      id="form-login"
-      style="display: flex; justify-content: space-between"
-      action="http://localhost:8080/auth/signin"
-      method="post"
-    >
+    <form id="form-login" style="display: flex; justify-content: space-between" action="http://localhost:8080/auth/signin" method="post">
       <input type="text" name="userId" value="아이디" />
       <input type="password" name="password" value="password1234" />
       <button type="submit" class="btn" id="btn-in">로그인</button>
@@ -36,20 +31,17 @@
             formData.append("password", password);
 
             try {
-              const response = await fetch(
-                "http://localhost:8080/auth/signin",
-                {
-                  method: "POST",
-                  body: formData,
-                }
-              );
+              const response = await fetch("http://localhost:8080/auth/signin", {
+                method: "POST",
+                body: formData,
+              });
 
               if (response.ok) {
                 // 성공 처리
                 const responseData = await response.json();
                 const nickname = responseData.nickname;
                 alert(`${nickname}` + "님! 오늘도 즐거운 식사 되세요!");
-                window.location.replace("http://localhost:5500"); // 로그인 성공 후 리다이렉트
+                window.location.replace("http://localhost:5502); // 로그인 성공 후 리다이렉트
               } else {
                 // 실패 처리
                 alert("로그인 중 오류가 발생했습니다.");

@@ -1,4 +1,9 @@
-main {
+form.write{
+  margin-top: 50px;
+  margin-left: 230px;
+  margin-right: 230px;
+}
+id {
   display: flex;
   flex-direction: column;
   justify-content: center;
