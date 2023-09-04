@@ -1,4 +1,4 @@
-form.write{
+form.write {
   margin-top: 50px;
   margin-left: 230px;
   margin-right: 230px;
@@ -54,4 +54,8 @@ li > button {
   height: 30px;
   font-size: 1rem;
   border: 1;
+}
+#review {
+  height: 300px;
+  text-align: start;
 }

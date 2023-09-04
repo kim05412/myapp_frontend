@@ -1,0 +1,7 @@
+article {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding-top: 100px;
+  padding-left: 200px;
+}

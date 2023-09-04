@@ -29,12 +29,6 @@
       return; // 전송 중지
     }
 
-    // // 파일이 선택되었는지 확인
-    // if (!file.files[0]) {
-    //   alert("파일을 선택해주세요.");
-    //   return;
-    // }
-
     async function sendData(fileDataString) {
       // 서버에 데이터 전송
       const response = await fetch("http://localhost:8080/auth/signup", {
