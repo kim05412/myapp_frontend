@@ -45,19 +45,9 @@
         </ul>
       </div>
       <section class="log">
-        <form
-          id="form-login"
-          style="display: flex; justify-content: space-between"
-          action="http://localhost:8080/auth/signin"
-          method="post"
-        >
+        <form id="form-login" style="display: flex; justify-content: space-between" action="http://localhost:8080/auth/signin" method="post">
           <input class="input" type="text" name="userId" value="아이디" />
-          <input
-            class="input"
-            type="password"
-            name="password"
-            value="password1234"
-          />
+          <input class="input" type="password" name="password" value="password1234" />
           <button type="submit" class="btn" id="btn-in">로그인</button>
         </form>
         <div id="btn-up" class="btn">
@@ -90,7 +80,7 @@
     <script src="index.js"></script>
     <!-- <script src="/post/post.js"></script> -->
     <script src="/auth/login.js "></script>
-    <script src="post/post.js"></script>
+    <script src="/post/post.js"></script>
     <!-- 웹 페이지 로딩 시 자동으로 버튼 상태 업데이트 -->
   </body>
 </html>

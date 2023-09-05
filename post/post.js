@@ -1,7 +1,7 @@
-// let currentPage = 0; // 현재 페이지 번호
-// let isLastPage = false; // 마지막 페이지 인지 여부
-// const PAGE_SIZE = 10; // 고정된 페이지 사이즈
-// let currentQuery = ""; // 현재 검색 키워드
+let currentPage = 0; // 현재 페이지 번호
+let isLastPage = false; // 마지막 페이지 인지 여부
+const PAGE_SIZE = 10; // 고정된 페이지 사이즈
+let currentQuery = ""; // 현재 검색 키워드
 
 //화면을 처음 켰을 때 첫번째 페이지 조회
 window.addEventListener("DOMContentLoaded", displayPosts());
