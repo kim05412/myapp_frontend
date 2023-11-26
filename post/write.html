@@ -46,19 +46,9 @@
         </ul>
       </div>
       <section class="log">
-        <form
-          id="form-login"
-          style="display: flex; justify-content: space-between"
-          action="http://localhost:8080/auth/signin"
-          method="post"
-        >
+        <form id="form-login" style="display: flex; justify-content: space-between" action="http://localhost:8080/auth/signin" method="post">
           <input class="input" type="text" name="userId" value="아이디" />
-          <input
-            class="input"
-            type="password"
-            name="password"
-            value="password1234"
-          />
+          <input class="input" type="password" name="password" value="password1234" />
           <button type="submit" class="btn" id="btn-in">로그인</button>
         </form>
         <div id="btn-up" class="btn">
@@ -110,33 +100,16 @@
               <option value="5">기타</option>
             </select> -->
           </div>
-          <input
-            type="title"
-            id="title"
-            placeholder="제목을 작성해주세요"
-            value="제목"
-          />
+          <input type="title" id="title" placeholder="제목을 작성해주세요" value="제목" />
         </div>
         <p class="img">
-          <input
-            type="text"
-            id="menu"
-            placeholder="메뉴명을 입력해주세요"
-            value="메뉴"
-          />
+          <input type="text" id="menu" placeholder="메뉴명을 입력해주세요" value="메뉴" />
           <input type="file" class="fileInput" accept="image/*" />
         </p>
-        <input
-          type="text"
-          id="address"
-          placeholder="식당의 주소를 입력해 주세요"
-          value="서울 마포구 서강로 137 1층"
-        />
-        // 지번 노고산동 57-26 1층 우편 04058
+        <input type="text" id="address" placeholder="식당의 주소를 입력해 주세요" value="서울 마포구 서강로 137 1층" />
+        <!-- // 지번 노고산동 57-26 1층 우편 04058 -->
         <!-- <input type="file" class="fileInput" accept="image/*" /> -->
-        <input type="text" id="review" cols="160" rows="25" placeholder="식당에
-        대한 솔직한 후기를 작성해 주세요" value="후기" style="margin-top:
-        0.25rem" /textarea>
+        <input type="text" id="review" cols="160" rows="25" placeholder="식당에 대한 솔직한 후기를 작성해 주세요" value="후기" style="margin-top: 0.25rem" /textarea>
         <ul>
           <li><button type="submit" id="btn-submit">게시</button></li>
           <!-- <li><button class="btn-modify">수정</button></li> -->

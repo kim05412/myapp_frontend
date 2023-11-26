@@ -11,6 +11,11 @@
   const file = inputs[6]; // input type="file"
 
   const add = form.querySelector("button");
+  // 로컬 호스트 여부와 API URL 확인
+  function apiUrl() {
+    return `${isLocalhost() ? "http://" : "https://"}${isLocalhost() ? `${location.hostname}:8080/api` : `${location.hostname}/api`}`;
+  }
+  const redirectUrl = isLocalhost() ? "http://localhost:5502" : "https://d1f3g0hpji6oor.cloudfront.net/";
 
   add.addEventListener("click", async (e) => {
     e.preventDefault();
@@ -31,7 +36,7 @@
 
     async function sendData(fileDataString) {
       // 서버에 데이터 전송
-      const response = await fetch("http://localhost:8080/auth/signup", {
+      const response = await fetch(`${apiUrl()}/auth/signup`, {
         // 상대 경로로 수정
         // HTTP Method
         method: "POST",
@@ -61,7 +66,7 @@
       });
       reader.readAsDataURL(file.files[0]);
       alert("회원가입이 완료되었습니다.");
-      window.location.href = `http://localhost:5502`;
+      window.location.href = redirectUrl;
     }
   });
 })();

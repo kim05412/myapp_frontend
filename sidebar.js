@@ -22,4 +22,11 @@
   `;
 
   document.body.prepend(sidebar); //body요소 맨 앞에 추가
+
+  function isLocalhost() {
+    return ["localhost", "127.0.0.1"].includes(location.hostname);
+  }
+  function apiUrl() {
+    return `${isLocalhost() ? "http" : "https"}://${isLocalhost() ? `${location.hostname}:8080/api` : location.hostname}`;
+  }
 })();

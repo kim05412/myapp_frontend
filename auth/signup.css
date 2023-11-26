@@ -16,10 +16,16 @@ div {
     margin: 10px;
   }
 
-form {
+section {
+    
     background-color:#ffa300; 
-    padding:30px; 
+    padding:40px; 
     border-radius: 10px; 
+
+    }
+ h1{
+margin-top: 10px;
+padding-bottom: 30px;
     }
 label{
     padding-bottom: 10px;

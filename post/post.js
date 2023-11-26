@@ -52,7 +52,7 @@ window.addEventListener("DOMContentLoaded", displayPosts());
 
 // 서버로부터 데이터를 가져 옴
 async function displayPosts() {
-  const url = "http://localhost:8080/posts";
+  const url = `${apiUrl()}/posts`;
 
   // 1. fetch, 서버에서 데이터 가져오기
   const response = await fetch(url, {
@@ -162,4 +162,11 @@ function extractAddressParts(address) {
     roadName,
     buildingNumber,
   };
+}
+//배포
+function isLocalhost() {
+  return ["localhost", "127.0.0.1"].includes(location.hostname);
+}
+function apiUrl() {
+  return `${isLocalhost() ? "http://" + location.hostname + ":8080/api" : "https://" + location.hostname + "/api"}`;
 }

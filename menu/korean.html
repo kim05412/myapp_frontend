@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="/drop-down.css" />
   </head>
   <body>
+    <script src="/auth/auth.js"></script>
     <header>
       <div><a href="/index.html">ProEatsNearby</a></div>
       <div class="catagory">
@@ -31,6 +32,21 @@
           </li>
         </ul>
       </div>
+      <section class="log">
+        <form id="form-login" style="display: flex; justify-content: space-between" method="post">
+          <input class="input" type="text" name="userId" value="아이디" />
+          <input class="input" type="password" name="password" value="password1234" />
+          <button type="submit" class="btn" id="btn-in">로그인</button>
+        </form>
+        <div id="btn-up" class="btn">
+          <a href="/auth/signup.html">회원가입</a>
+        </div>
+        <div id="btn-nickname" class="btn">
+          <a href="/user/mypage.html">`${nickname}`님</a>
+        </div>
+        <button id="btn-out" class="btn">로그아웃</button>
+        <!-- <div id="err" style="color: red"></div> -->
+      </section>
     </header>
     <main>
       <form action="">
@@ -40,6 +56,7 @@
       </form>
     </main>
     <script src="/sidebar.js"></script>
-    <script src="/search.js"></script>
+    <!-- <script src="/search.js"></script> -->
+    <script src="/auth/login.js "></script>
   </body>
 </html>

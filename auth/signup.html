@@ -8,16 +8,20 @@
   </head>
   <body>
     <div>
-    <form id="form-signup" style="display: flex; justify-content: space-between">
-      <label><input placeholder="사용할 아이디를 작성해주세요" type="text" name="userId" value="id1234" /></label>
-      <label></label><input placeholder="비밀번호를 작성해주세요" type="password" name="password" value="password1234" /></label>
-      <label></label><input placeholder="사용할 닉네임을 작성해주세요" type="text" name="nickname" value="nick1234" /></label>
-      <label></label><input placeholder="태어난 년도를 작성해주세요" type="Number" name="year" value="1997" /></label>
-      <label></label><input placeholder=" 현재 재직중 인 회사명을 작성해주세요" type="text" name="companyName" value="company이름1234" /></label>
-      <label></label><input placeholder=" 현재 재직중 인 회사의 주소를 작성해주세요" type="text" name="companyAddress" value="company주소1234" /></label>
+     <h1> Welcome to ProEatsNearby!</h1>
+     <section>
+      <form id="form-signup" style="display: flex; justify-content: space-between">
+      <label><input placeholder="사용할 아이디를 작성해주세요" type="text" name="userId" value="" /></label>
+      <label></label><input placeholder="비밀번호를 작성해주세요" type="password" name="password" value="" /></label>
+      <label></label><input placeholder="사용할 닉네임을 작성해주세요" type="text" name="nickname" value="" /></label>
+      <label></label><input placeholder="태어난 년도를 작성해주세요" type="Number" name="year" value="" /></label>
+      <label></label><input placeholder=" 현재 재직중 인 회사명을 작성해주세요" type="text" name="companyName" value="" /></label>
+      <label></label><input placeholder=" 현재 재직중 인 회사의 주소를 작성해주세요" type="text" name="companyAddress" value="" /></label>
       <label></label><label for="file">이미지 업로드 <input type="file" id="file" name="file" accept="image/*" /></label>
       <button type="submit">회원가입</button>
-    </form></div>
+    </form>
+  </section>
+</div>
     <!-- 
     <script>
       (() => {
@@ -150,8 +154,7 @@
         });
       })();
     </script> -->
-    <!-- <script src="auth.js"></script> -->
-
+    <script src="auth.js"></script>
     <script src="signup.js"></script>
   </body>
 </html>
